@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "36feda4c-17cd-4fc8-a1ee-05255dcb73b6",
+		"name": "Interview Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25330991"
+	},
+	"item": [
+		{
+			"name": "GetWebServers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/webservers/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"webservers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReadWebServer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/webservers/?nameofwebserver",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"webservers",
+						""
+					],
+					"query": [
+						{
+							"key": "nameofwebserver",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateWebserver",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"name of the web server\",\r\n    \"url\" : \"String of url\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/webservers/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"webservers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateWebServer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"url\": \"the new url adress\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/webservers/?nameOfTheWebServer",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"webservers",
+						""
+					],
+					"query": [
+						{
+							"key": "nameOfTheWebServer",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteWebServer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/webservers/?TheNameOfTheWebServer",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"webservers",
+						""
+					],
+					"query": [
+						{
+							"key": "TheNameOfTheWebServer",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetWebServerHistory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v2/requestdb/history/?webServerName",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"requestdb",
+						"history",
+						""
+					],
+					"query": [
+						{
+							"key": "webServerName",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

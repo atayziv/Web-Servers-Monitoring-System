@@ -1,7 +1,0 @@
-# Ignore artifacts:
-node_modules
-build
-coverage
-
-# Ignore all Markdown files:
-**/*.md
