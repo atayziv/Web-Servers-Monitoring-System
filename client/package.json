@@ -1,0 +1,76 @@
+{
+    "name": "web-server-with-ui-client-side",
+    "version": "1.0.0",
+    "description": "The client side of the template of a web server",
+    "private": true,
+    "jest": {
+        "collectCoverageFrom": [
+            "./src/**/*.ts",
+            "./src/**/{!(index),}.tsx"
+        ]
+    },
+    "scripts": {
+        "prettier": "prettier . --write",
+        "prettier:ci": "prettier . --check",
+        "lint": "tsc && eslint . --ext .ts,.tsx",
+        "build": "react-scripts build",
+        "start": "react-scripts start",
+        "start:server": "cd ../server && npm start",
+        "test": "react-scripts test --coverage --watchAll",
+        "test:ci": "react-scripts test --coverage --watchAll=false",
+        "test:all": "npm-run-all prettier lint test:ci",
+        "eject": "react-scripts eject"
+    },
+    "dependencies": {
+        "@fontsource/roboto": "4.5.1",
+        "@material-ui/core": "4.12.3",
+        "@material-ui/icons": "4.11.2",
+        "@material-ui/lab": "4.0.0-alpha.60",
+        "@testing-library/dom": "8.20.1",
+        "@testing-library/jest-dom": "5.17.0",
+        "@testing-library/react": "12.1.5",
+        "@testing-library/user-event": "13.5.0",
+        "@trivago/prettier-plugin-sort-imports": "4.2.0",
+        "@types/jest": "26.0.24",
+        "@types/node": "12.20.36",
+        "@types/react": "17.0.33",
+        "@types/react-dom": "17.0.10",
+        "@typescript-eslint/eslint-plugin": "4.33.0",
+        "@typescript-eslint/parser": "4.33.0",
+        "axios": "0.21.4",
+        "eslint-config-prettier": "8.9.0",
+        "eslint-plugin-jest": "24.7.0",
+        "eslint-plugin-jest-dom": "5.1.0",
+        "eslint-plugin-testing-library": "4.12.4",
+        "http-proxy-middleware": "2.0.1",
+        "http-status-codes": "2.1.4",
+        "npm-run-all": "4.1.5",
+        "prettier": "3.0.0",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "react-error-boundary": "3.1.4",
+        "react-router-dom": "6.3.0",
+        "typescript": "4.4.4"
+    },
+    "devDependencies": {
+        "react-scripts": "4.0.3"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
