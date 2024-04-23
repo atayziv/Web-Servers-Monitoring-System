@@ -12,9 +12,7 @@ const getWebservers = async (req, res) => {
 };
 
 const getWebServerById = async (req, res) => {
-    const url = req.params.url;
-    console.log("url= "+url);
-    console.log(req.params)
+    var {url} = req.body;
     try {
         const results = await pool.query(queries.getWebServerById, [url]);
         res.status(200).json(results.rows);
@@ -25,6 +23,7 @@ const getWebServerById = async (req, res) => {
 };
 
 const addWebServer = async (req, res) => {
+    console.log(req.body);
     const { name, url } = req.body;
     try {
         const existingWebServer = await pool.query(queries.checkUrlExists, [url]);
@@ -41,10 +40,10 @@ const addWebServer = async (req, res) => {
 };
 
 const removeWebServer = async (req, res) => {
-    const url = req.params.url;
+    var {url} = req.body;
     try {
         const results = await pool.query(queries.getWebServerById, [url]);
-        if (!results.rows.length) {
+        if (!results) {
             res.status(404).send('Web server not found');
             return;
         }
@@ -57,12 +56,10 @@ const removeWebServer = async (req, res) => {
 };
 
 const updateWebServer = async (req, res) => {
-    const url = req.params.url;
-    const { name } = req.body;
-    console.log("in updateWebServer,name = " +name);
+    var { url,name } = req.body;
     try {
         const results = await pool.query(queries.getWebServerById, [url]);
-        if (!results.rows.length) {
+        if (!results) {
             res.status(404).send('Web server not found');
             return;
         }
@@ -75,7 +72,7 @@ const updateWebServer = async (req, res) => {
 };
 
 const getWebServerHistory = async (req, res) => {
-    const url = req.params.url;
+    var {url} = req.body;
     try {
         const results = await pool.query(queries.getWebServerHistory, [url]);
         res.status(200).json(results.rows);
