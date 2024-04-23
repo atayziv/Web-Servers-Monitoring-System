@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import InsertWebServer from './components/InsertWebServer';
 import GetWebServers from './components/GetWebServers';
-// import UpdateWebServer from './components/UpdateWebServer';
-// import RemoveWebServer from './components/RemoveWebServer';
+import GetWebServer from './components/GetWebServerInfo';
+import UpdateWebServer from './components/UpdateWebServer';
+import RemoveWebServer from './components/RemoveWebServer';
 
 function App() {
   // State to track the current section (CRUD operation)
@@ -10,14 +11,16 @@ function App() {
 
   const renderContent = () => {
     switch (currentSection) {
-      case 'insert':
+      case 'insert webserver':
         return <InsertWebServer />;
-      case 'get':
+      case 'get webserver':
+        return <GetWebServer />;
+      case 'get webservers':
         return <GetWebServers />;
-      // case 'update':
-      //   return <UpdateWebServer />;
-      // case 'remove':
-      //   return <RemoveWebServer />;
+      case 'update':
+        return <UpdateWebServer />;
+      case 'remove':
+        return <RemoveWebServer />;
       default:
         return <div>Select an operation from the menu.</div>;
     }
@@ -29,8 +32,9 @@ function App() {
       {/* Navigation menu */}
       <nav>
         <ul>
-          <li onClick={() => setCurrentSection('insert')}>Insert Web Server</li>
-          <li onClick={() => setCurrentSection('get')}>Get Web Servers</li>
+          <li onClick={() => setCurrentSection('insert webserver')}>Insert Web Server</li>
+          <li onClick={() => setCurrentSection('get webserver')}>Get Web Server Information</li>
+          <li onClick={() => setCurrentSection('get webservers')}>Get Web Servers</li>
           <li onClick={() => setCurrentSection('update')}>Update Web Server</li>
           <li onClick={() => setCurrentSection('remove')}>Remove Web Server</li>
         </ul>
