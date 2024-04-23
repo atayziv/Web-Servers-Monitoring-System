@@ -11,7 +11,7 @@ function RemoveWebServer() {
       const data = {
         url: url,
       };
-      axios.request({ method: "DEL", url: 'http://localhost:3030/api/v1/webservers/remove', data});
+      axios.request({ method: "DELETE", url: 'http://localhost:3030/api/v1/webservers/remove', data});
       setMessage('Web server removed successfully');
       setUrl('');
     } catch (error) {

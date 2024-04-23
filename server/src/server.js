@@ -1,14 +1,21 @@
-const express = require("express");
-const { json } = require("express");
+const express = require('express');
+const { json } = require('express');
 const cors = require('cors');
-const webserversRoutes = require("./routes");
+const webserversRoutes = require('./routes');
 
 const app = express();
 const port = 3030;
+
+// Allow CORS with proper settings
 app.use(cors());
 app.use(json());
 
+// Middleware for logging requests (for debugging)
+app.use((req, res, next) => {
+  console.log(`Received ${req.method}`);
+  next();
+});
 
-app.use("/api/v1/webservers", webserversRoutes);
-app.use("/api/v2/requestdb", webserversRoutes);
-app.listen(port, () => console.log('app listening on port ' + port));
+app.use('/api/v1/webservers', webserversRoutes);
+
+app.listen(port, () => console.log(`App listening on port ${port}`));
