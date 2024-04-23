@@ -4,6 +4,7 @@ import GetWebServers from './components/GetWebServers';
 import GetWebServer from './components/GetWebServerInfo';
 import UpdateWebServer from './components/UpdateWebServer';
 import RemoveWebServer from './components/RemoveWebServer';
+import GetWebServerHistory from './components/GetWebServerHistory';
 
 function App() {
   // State to track the current section (CRUD operation)
@@ -17,6 +18,8 @@ function App() {
         return <GetWebServer />;
       case 'get webservers':
         return <GetWebServers />;
+      case 'get webserver history':
+        return <GetWebServerHistory />;
       case 'update':
         return <UpdateWebServer />;
       case 'remove':
@@ -35,6 +38,7 @@ function App() {
           <li onClick={() => setCurrentSection('insert webserver')}>Insert Web Server</li>
           <li onClick={() => setCurrentSection('get webserver')}>Get Web Server Information</li>
           <li onClick={() => setCurrentSection('get webservers')}>Get Web Servers</li>
+          <li onClick={() => setCurrentSection('get webserver history')}>Get Web Server History</li>
           <li onClick={() => setCurrentSection('update')}>Update Web Server</li>
           <li onClick={() => setCurrentSection('remove')}>Remove Web Server</li>
         </ul>

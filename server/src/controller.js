@@ -78,14 +78,20 @@ const updateWebServer = async (req, res) => {
 };
 
 const getWebServerHistory = async (req, res) => {
-    var {url} = req.body;
     try {
-        const results = await pool.query(queries.getWebServerHistory, [url]);
-        res.status(200).json(results.rows);
+        const { url } = req.query; // Get the 'url' from query parameters
+        if (!url) {
+            return res.status(400).json({ error: "Missing URL parameter" }); // Return error if no URL is provided
+        }
+        const results = await pool.query(queries.getWebServerHistory, [url]); // Query database with 'url'
+        if (results.rows.length === 0) {
+            return res.status(404).json({ error: "Web server not found" }); // Return error if no records are found
+        }
+        res.status(200).json(results.rows); // Return the query results
     } catch (error) {
-        console.error(error);
-        res.status(500).send('Internal server error');
-    }
+      console.error(error);
+      res.status(500).send("Internal server error"); // Handle server errors
+    };
 };
 
 module.exports = {
